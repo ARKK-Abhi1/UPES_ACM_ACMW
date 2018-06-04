@@ -3,22 +3,28 @@
         <group android:checkableBehavior= "single">
 
                 <item android:id="@+id/action_events"
-                    android:title="@string/title_myevents" />
+                    android:title="@string/title_myevents"
+                    android:icon="@drawable/my_events"/>
 
                 <item android:id="@+id/action_upcoming"
-                    android:title="@string/title_upcmngevents" />
+                    android:title="@string/title_upcmngevents"
+                    android:icon="@drawable/upcoming_events"/>
 
                 <item android:id="@+id/action_projects"
-                    android:title="@string/title_projects" />
+                    android:title="@string/title_projects"
+                    android:icon="@drawable/ongoing_projects"/>
 
                 <item android:id="@+id/action_studymaterial"
-                    android:title="@string/title_study" />
+                    android:title="@string/title_study"
+                    android:icon="@drawable/study_material"/>
 
                 <item android:id="@+id/action_alumni"
-                    android:title="@string/title_alumni"/>
+                    android:title="@string/title_alumni"
+                    android:icon="@drawable/alumni"/>
 
                 <item android:id="@+id/actio_about"
-                    android:title="@string/title_About"/>
+                    android:title="@string/title_About"
+                    android:icon="@drawable/about"/>
 
         </group>
 </menu>

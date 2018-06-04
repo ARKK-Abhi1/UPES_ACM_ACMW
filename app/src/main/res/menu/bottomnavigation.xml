@@ -9,12 +9,13 @@
         android:title="@string/title_star"
         android:icon="@drawable/star_bottomnav" />
 
+    <item android:id="@+id/action_team"
+        android:title="ACM Team"
+        android:icon="@drawable/team_bottomnav" />
+
     <item android:id="@+id/action_avail"
         android:title="@string/title_available"
-        android:icon="@drawable/members_bottomnav" />
+         android:icon="@drawable/available_bottomnav"/>
 
-    <item android:id="@+id/action_call"
-        android:title="@string/title_contact"
-        android:icon="@drawable/contact_bottomnav"/>
 
 </menu>
