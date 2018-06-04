@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EventRegistration"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <EditText
         android:id="@+id/ParticipantName"
@@ -15,7 +16,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:textSize="16sp"
-        android:hint="Name" />
+        android:hint="Name"
+        />
 
     <EditText
         android:id="@+id/ParticipantSAPID"
@@ -28,7 +30,6 @@
         android:hint="SAPID"
         android:inputType="number"
         />
-
     <EditText
         android:id="@+id/ParticipantBranch"
         android:layout_width="match_parent"
@@ -50,7 +51,6 @@
         android:textSize="16sp"
         android:hint="Year"
         />
-
     <EditText
         android:id="@+id/ParticipantEmail"
         android:layout_width="match_parent"
@@ -60,9 +60,7 @@
         android:layout_marginTop="8dp"
         android:textSize="16sp"
         android:hint="Email address"
-        android:inputType="textEmailAddress|text"
-        />
-
+        android:inputType="textEmailAddress|text"/>
     <EditText
         android:id="@+id/ParticipantPhone"
         android:layout_width="match_parent"
@@ -73,15 +71,14 @@
         android:hint="Phone Number"
         android:textSize="16sp"
         android:inputType="number|phone"
-        />
 
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select Event"
         android:textSize="20dp"
         android:layout_marginLeft="8dp"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -89,7 +86,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,7 +105,6 @@
         android:layout_height="wrap_content"
         android:text="Event 3"/>
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -128,12 +123,15 @@
                 android:layout_height="wrap_content"
                 android:text="Event 6"/>
         </LinearLayout>
-        </LinearLayout>
 
-    <LinearLayout
+
+        </LinearLayout>
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+
+    >
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -149,11 +147,6 @@
         android:layout_weight="1"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="8dp">
-
-    </LinearLayout>
-
 </LinearLayout>
 
-
-
-
+</LinearLayout>
