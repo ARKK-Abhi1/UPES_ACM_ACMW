@@ -1,5 +1,6 @@
 package org.upesacm.acmacmw.activity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import org.upesacm.acmacmw.Alumni;
 import org.upesacm.acmacmw.R;
 import org.upesacm.acmacmw.adapter.HomePageAdapter;
 import org.upesacm.acmacmw.model.Post;
@@ -92,7 +94,12 @@ public class HomeActivity extends AppCompatActivity implements
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()==R.id.action_alumni)
+        {
+            Intent intent = new Intent(HomeActivity.this, Alumni.class);
+            startActivity(intent);
 
+        }
         System.out.println("onNaviagationItemSelected");
         return true;
     }
