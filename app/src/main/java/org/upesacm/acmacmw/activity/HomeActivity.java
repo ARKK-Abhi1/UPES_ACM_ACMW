@@ -1,5 +1,6 @@
 package org.upesacm.acmacmw.activity;
 
+import android.os.AsyncTask;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -16,11 +17,20 @@ import android.view.MenuItem;
 import org.upesacm.acmacmw.Alumni;
 import org.upesacm.acmacmw.R;
 import org.upesacm.acmacmw.adapter.HomePageAdapter;
+import org.upesacm.acmacmw.asynctask.HomePageDataDownloader;
 import org.upesacm.acmacmw.model.Post;
 import org.upesacm.acmacmw.model.Question;
+import org.upesacm.acmacmw.retrofit.HomePageClient;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
@@ -35,7 +45,7 @@ public class HomeActivity extends AppCompatActivity implements
     FragmentManager fragmentManager;
     NavigationView navigationView;
     Retrofit retrofit;
-
+    HomePageClient homePageClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +60,8 @@ public class HomeActivity extends AppCompatActivity implements
                 .baseUrl(BASE_URL)
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
+        homePageClient =retrofit.create(HomePageClient.class);
+
 
         tabLayout.setupWithViewPager(homePager);
 
@@ -63,33 +75,12 @@ public class HomeActivity extends AppCompatActivity implements
         /* **********************************************************************************/
 
 
-        /* *******************Creating demo posts and questions********************/
-        ArrayList<Post> posts=new ArrayList<>();
-        for(int i=1;i<10;i++) {
-            posts.add(new Post("Post "+i));
-        }
-        ArrayList<Question> questions=new ArrayList<>();
-        for(int i=1;i<10;i++) {
-            questions.add(new Question("Question "+i));
-        }
+        /* *******************Downloading data for homepage********************/
+        HomePageDataDownloader downloader=new HomePageDataDownloader();
+        downloader.execute(homePageClient,fragmentManager,homePager);
         /* ***********************************************************************/
 
-
-        /* *********************** Creating Retrofit Instance *********************************/
-        retrofit=new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(JacksonConverterFactory.create())
-                .build();
-        /* ***********************************************************************************/
-
-
-        /* *********************creating and setting the home page adapter******************/
-        homePageAdapter = new HomePageAdapter(fragmentManager,retrofit,posts,questions);
-        homePager.setAdapter(homePageAdapter);
-        /* ***********************************************************************************/
-
         navigationView.setNavigationItemSelectedListener(this);
-
     }
 
     @Override
