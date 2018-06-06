@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import org.upesacm.acmacmw.Alumni;
+import org.upesacm.acmacmw.OngoingProjects;
 import org.upesacm.acmacmw.R;
 import org.upesacm.acmacmw.adapter.HomePageAdapter;
 import org.upesacm.acmacmw.asynctask.HomePageDataDownloader;
@@ -90,6 +91,11 @@ public class HomeActivity extends AppCompatActivity implements
             Intent intent = new Intent(HomeActivity.this, Alumni.class);
             startActivity(intent);
 
+        }
+        else if(item.getItemId()==R.id.action_projects)
+        {
+            Intent intent = new Intent (HomeActivity.this, OngoingProjects.class);
+            startActivity(intent);
         }
         System.out.println("onNaviagationItemSelected");
         return true;

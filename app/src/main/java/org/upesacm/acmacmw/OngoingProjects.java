@@ -2,6 +2,7 @@ package org.upesacm.acmacmw;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -20,6 +21,11 @@ public class OngoingProjects extends AppCompatActivity {
         detailList= new ArrayList<>();
         recyclerView= (RecyclerView) findViewById(R.id.projects_recycler_view);
 
+        detailList.add(new ProjectDetail(R.drawable.parking,"E-Parky","Parking automation app"));
+        detailList.add(new ProjectDetail(R.drawable.scenery,"ABC","XYZ"));
+        adapter = new ProjectDetailAdapter(this,detailList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
 
     }
 }

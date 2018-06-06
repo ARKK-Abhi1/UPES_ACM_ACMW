@@ -22,7 +22,7 @@ public class ProjectDetailAdapter extends RecyclerView.Adapter<ProjectDetailAdap
     @Override
     public DetailViewHolder onCreateViewHolder (ViewGroup parent, int viewType){
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.activity_projects_layout, null);
+        View view = inflater.inflate(R.layout.activity_projects_layout,parent,false);
         return new DetailViewHolder(view);
     }
     @Override
