@@ -44,9 +44,6 @@ public class EventRegistration extends AppCompatActivity {
 
 
 
-
-
-
         ParticipantName = (EditText)findViewById(R.id.ParticipantName);
         ParticipantSAPID = (EditText)findViewById(R.id.ParticipantSAPID);
         ParticipantBranch = (EditText)findViewById(R.id.ParticipantBranch);
@@ -62,7 +59,7 @@ public class EventRegistration extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                RegisterUser registerUser = new RegisterUser();
+                NewMember newMember = new NewMember();
                 getUserData();
             }
         });
@@ -71,9 +68,17 @@ public class EventRegistration extends AppCompatActivity {
     }
     public void getUserData(){
 
-        String nameHolder = NameEditText.getText().toString().trim();
+        String Name = ParticipantName.getText().toString().trim();
 
-        NumberHolder = PhoneNumberEditText.getText().toString().trim();
+        String Number = ParticipantPhone.getText().toString().trim();
+
+        String WhatsappNo = ParticipantWhatsapp.getText().toString().trim();
+        String Branch = ParticipantBranch.getText().toString().trim();
+        String Email = ParticipantEmail.getText().toString().trim();
+        String SAPID = ParticipantSAPID.getText().toString().trim();
+        String CName = C_Name.getText().toString().trim();
+        String CRollNo = C_Roll_No.getText().toString().trim();
+        Integer year = Year.getText().toString().trim();
 
     }
 

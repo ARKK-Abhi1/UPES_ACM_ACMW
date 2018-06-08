@@ -10,6 +10,10 @@ public class NewMember {
     int rollNo;
     boolean premium;
 
+    public NewMember(){
+        //Default Constructor
+    }
+
     public boolean isPremium() {
         return premium;
     }
