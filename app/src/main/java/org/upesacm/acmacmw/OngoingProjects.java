@@ -1,31 +1,36 @@
 package org.upesacm.acmacmw;
 
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.FrameLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class OngoingProjects extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    ProjectDetailAdapter adapter;
-    List<ProjectDetail> detailList;
+
+    FragmentManager fragmentManager;
+    FrameLayout frameLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ongoing_projects);
 
-        detailList= new ArrayList<>();
-        recyclerView= (RecyclerView) findViewById(R.id.projects_recycler_view);
+        fragmentManager=getSupportFragmentManager();
 
-        detailList.add(new ProjectDetail(R.drawable.parking,"E-Parky","Parking automation app"));
-        detailList.add(new ProjectDetail(R.drawable.scenery,"ABC","XYZ"));
-        adapter = new ProjectDetailAdapter(this,detailList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
+
+        frameLayout=findViewById(R.id.frame_layout);
+
+        FragmentTransaction ft=fragmentManager.beginTransaction();
+        ft.replace(R.id.frameLayout,OngoinProjectFragment.newInstance(fragmentManager),"ongoingprojectfragment");
+        ft.commit();
 
     }
 }

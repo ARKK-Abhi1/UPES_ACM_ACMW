@@ -13,17 +13,19 @@
         <activity android:name=".EventRegistration" />
         <activity android:name=".MembersAtCampus" />
         <activity android:name=".activity.HomeActivity">
+
+        </activity>
+        <activity android:name=".ACMHeirarchyActivity" />
+        <activity android:name=".Alumni" />
+        <activity android:name=".OngoingProjects" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ACMHeirarchyActivity" />
-        <activity android:name=".Alumni" />
-        <activity android:name=".OngoingProjects" />
-        <activity android:name=".Details_fragment" />
-        <activity android:name=".MembersAssociated_Fragment"></activity>
+
+
     </application>
 
 </manifest>
