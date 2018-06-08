@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity"></activity>
+        <activity android:name=".SplashActivity" />
         <activity android:name=".EventRegistration" />
         <activity android:name=".MembersAtCampus" />
         <activity android:name=".activity.HomeActivity">
@@ -22,7 +22,8 @@
         <activity android:name=".ACMHeirarchyActivity" />
         <activity android:name=".Alumni" />
         <activity android:name=".OngoingProjects" />
-        <activity android:name=".Details_fragment"></activity>
+        <activity android:name=".Details_fragment" />
+        <activity android:name=".MembersAssociated_Fragment"></activity>
     </application>
 
 </manifest>
