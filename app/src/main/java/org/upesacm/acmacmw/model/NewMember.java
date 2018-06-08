@@ -7,7 +7,7 @@ public class NewMember {
     int sapId;
     int phoneNo;
     int whatsappNo;
-    int rollNo;
+
     boolean premium;
 
     public NewMember(){

@@ -9,6 +9,8 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.upesacm.acmacmw.model.NewMember;
+
 public class EventRegistration extends AppCompatActivity {
     EditText ParticipantName,ParticipantSAPID,ParticipantBranch,Year,
             ParticipantEmail,ParticipantPhone,ParticipantWhatsapp,C_Name,
@@ -40,7 +42,7 @@ public class EventRegistration extends AppCompatActivity {
 
         firebase = new Firebase(Firebase_Server_URL);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference(Database_Path);
+        databaseReference = FirebaseDatabase.getInstance().getReference("Event_registration");
 
 
 
@@ -51,15 +53,12 @@ public class EventRegistration extends AppCompatActivity {
         ParticipantEmail = (EditText)findViewById(R.id.ParticipantEmail);
         ParticipantPhone  = (EditText)findViewById(R.id.ParticipantPhone);
         ParticipantWhatsapp = (EditText)findViewById(R.id.ParticipantWhatsapp);
-        C_Name = (EditText)findViewById(R.id.C_Name);
-        C_Roll_No = (EditText)findViewById(R.id.C_Roll_No);
         Register = (Button)findViewById(R.id.Register);
 
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                NewMember newMember = new NewMember();
                 getUserData();
             }
         });
@@ -68,18 +67,25 @@ public class EventRegistration extends AppCompatActivity {
     }
     public void getUserData(){
 
-        String Name = ParticipantName.getText().toString().trim();
-
-        String Number = ParticipantPhone.getText().toString().trim();
-
-        String WhatsappNo = ParticipantWhatsapp.getText().toString().trim();
-        String Branch = ParticipantBranch.getText().toString().trim();
-        String Email = ParticipantEmail.getText().toString().trim();
-        String SAPID = ParticipantSAPID.getText().toString().trim();
-        String CName = C_Name.getText().toString().trim();
-        String CRollNo = C_Roll_No.getText().toString().trim();
+        String fullName = ParticipantName.getText().toString().trim();
+        String phoneNo = ParticipantPhone.getText().toString().trim();
+        String whatsappNo = ParticipantWhatsapp.getText().toString().trim();
+        String branch = ParticipantBranch.getText().toString().trim();
+        String email = ParticipantEmail.getText().toString().trim();
+        String sapId = ParticipantSAPID.getText().toString().trim();
         Integer year = Year.getText().toString().trim();
 
+        NewMember a = new NewMember();
+
+        a.setBranch(branch);
+        a.setEmail(email);
+        a.setFullName(fullName);
+        a.setSapId(sapId);
+        a.setPhoneNo(phoneNo);
+        a.setYear(year);
+        a.setWhatsappNo(whatsappNo);
+
+        FirebaseDatabase.setValue(a);
     }
 
     public void saveUserData(){
