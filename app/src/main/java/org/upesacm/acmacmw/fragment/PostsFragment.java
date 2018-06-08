@@ -1,7 +1,6 @@
 package org.upesacm.acmacmw.fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,19 +13,17 @@ import org.upesacm.acmacmw.adapter.PostsRecyclerViewAdapter;
 import org.upesacm.acmacmw.R;
 import org.upesacm.acmacmw.listener.OnLoadMoreListener;
 import org.upesacm.acmacmw.model.Post;
-import org.upesacm.acmacmw.retrofit.PostClient;
+import org.upesacm.acmacmw.retrofit.HomePageClient;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class PostsFragment extends Fragment implements  OnLoadMoreListener,
         Callback<HashMap<String,Post>> {
@@ -34,14 +31,16 @@ public class PostsFragment extends Fragment implements  OnLoadMoreListener,
     RecyclerView recyclerView;
     PostsRecyclerViewAdapter recyclerViewAdapter;
     private ArrayList<Post> posts;
-    PostClient postClient;
-    private Date currentDate;
-    private int dayCount=-1;
+    HomePageClient homePageClient;
+    private Date defaultDate;
+    private int dayCount=0;
     private SimpleDateFormat dateFormat;
     public PostsFragment() {
         // Required empty public constructor
         dateFormat=new SimpleDateFormat("dd-MM-yyyy");
-        currentDate=Calendar.getInstance().getTime();
+        Calendar calendar=Calendar.getInstance();
+        calendar.add(Calendar.MONTH,-1);
+        defaultDate=calendar.getTime();
     }
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -66,8 +65,8 @@ public class PostsFragment extends Fragment implements  OnLoadMoreListener,
         return view;
     }
 
-    public Fragment setPostClient(PostClient postClient) {
-        this.postClient=postClient;
+    public Fragment setPostClient(HomePageClient homePageClient) {
+        this.homePageClient = homePageClient;
         return this;
     }
 
@@ -104,12 +103,12 @@ public class PostsFragment extends Fragment implements  OnLoadMoreListener,
     @Override
     public void onLoadMore() {
         System.out.println("on load more");
+        recyclerViewAdapter.setLoading(true);//keep this above the addPost
         recyclerViewAdapter.addPost(null);//place holder for the progress bar
-        recyclerViewAdapter.setLoading(true);
 
         /* *********Getting the date for the new set of posts ********************* */
         Calendar c = Calendar.getInstance();
-        c.setTime(currentDate);
+        c.setTime(defaultDate);
         c.add(Calendar.DATE,dayCount);
         String dateId=dateFormat.format(c.getTime());
         System.out.println("dateId : "+dateId);
@@ -118,7 +117,7 @@ public class PostsFragment extends Fragment implements  OnLoadMoreListener,
 
 
         /* ************************do the download operation here********************** */
-        Call<HashMap<String,Post>> call=postClient.getPosts(dateId);
+        Call<HashMap<String,Post>> call= homePageClient.getPosts(dateId);
         call.enqueue(PostsFragment.this);
         /* **************************************************************************** */
     }
