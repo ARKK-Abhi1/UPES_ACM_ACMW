@@ -11,5 +11,7 @@
 
     <color name="bottom_nav_icon_tint">#ffffff</color>
     <color name="bottom_nav_icon_text">#ffffff</color>
+    <color name="legacy_primary">#4fe5cd</color>
+    <color name="primaryColor">#4fe5cd</color>
 
 </resources>
