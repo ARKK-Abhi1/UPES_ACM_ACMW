@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ac1900</color>
-    <color name="colorPrimaryDark">#760000</color>
-    <color name="colorAccent">#E65100</color>
-    <color name="colorSecondary">#263238</color>
-    <color name="colorSecondaryDrak">#000a12</color>
-    <color name="colorSecondaryLight">#4f5b62</color>
+    <color name="colorPrimary">#1e88e5</color>
+    <color name="colorPrimaryDark">#005cb2</color>
+    <color name="colorAccent">#6ab7ff</color>
+    <color name="colorSecondary">#ffffff</color>
+    <color name="colorSecondaryDrak">#cccccc</color>
+    <color name="colorSecondaryLight">#ffffff</color>
     <color name="onPrimary">#000000</color>
-    <color name="onSeconadry">#ffffff</color>
+    <color name="onSeconadry">#000000</color>
 
     <color name="gray">#fffff0</color>
-    <color name="bottom_nav_icon_tint">#ffffff</color>
-    <color name="bottom_nav_icon_text">#ffffff</color>
+    <color name="bottom_nav_icon_tint">#000000</color>
+    <color name="bottom_nav_icon_text">#000000</color>
     <color name="legacy_primary">#4fe5cd</color>
     <color name="primaryColor">#4fe5cd</color>
 
