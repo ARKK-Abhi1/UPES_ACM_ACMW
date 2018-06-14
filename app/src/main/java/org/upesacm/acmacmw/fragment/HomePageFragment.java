@@ -1,5 +1,6 @@
 package org.upesacm.acmacmw.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
@@ -15,7 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.upesacm.acmacmw.R;
-import org.upesacm.acmacmw.fragment.homepage.HomeFragment;
+import org.upesacm.acmacmw.activity.HomeActivity;
+import org.upesacm.acmacmw.fragment.homepage.ContactUsFragment;
+import org.upesacm.acmacmw.fragment.homepage.HierarchyFragment;
+import org.upesacm.acmacmw.fragment.homepage.PostsFragment;
+import org.upesacm.acmacmw.fragment.homepage.UpcomingEventsFragment;
 import org.upesacm.acmacmw.retrofit.HomePageClient;
 
 import java.lang.reflect.Field;
@@ -25,20 +30,22 @@ public class HomePageFragment extends Fragment implements BottomNavigationView.O
 
     BottomNavigationView bottomNavigationView;
     private HomePageClient homePageClient;
+    Context context;
     private FragmentManager childFm;
     public HomePageFragment() {
         // Required empty public constructor
     }
 
-    public static Fragment newInstance(HomePageClient homePageClient) {
+    public static Fragment newInstance(HomePageClient homePageClient,Context context) {
         HomePageFragment homePageFragment=new HomePageFragment();
         homePageFragment.homePageClient=homePageClient;
-
+        homePageFragment.context=context;
         return homePageFragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        System.out.println("onCreate homepagefragment");
         super.onCreate(savedInstanceState);
         childFm=getChildFragmentManager();
     }
@@ -58,10 +65,19 @@ public class HomePageFragment extends Fragment implements BottomNavigationView.O
         /* ****************************************************************************** */
 
         FragmentTransaction ft=childFm.beginTransaction();
-        ft.replace(R.id.frameLayout_homepage,HomeFragment.newInstance(homePageClient));
+        ft.replace(R.id.frameLayout_homepage, PostsFragment.newInstance(homePageClient),"posts_fragment");
         ft.commit();
 
         return view;
+    }
+
+
+    @Override
+    public void onResume() {
+        System.out.println("onResume homepagefragment");
+        ((HomeActivity)context).setDrawerEnabled(true);
+        ((HomeActivity)context).setActionBarTitle("ACM ACM-W App");
+        super.onResume();
     }
 
     void disableShiftMode(BottomNavigationView view) {
@@ -89,14 +105,27 @@ public class HomePageFragment extends Fragment implements BottomNavigationView.O
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        if(item.getItemId()==R.id.action_star) {
+        if(item.getItemId()==R.id.action_posts) {
             FragmentTransaction ft=childFm.beginTransaction();
-            ft.replace(R.id.frameLayout_homepage, new AlumniFragment());
+            ft.add(R.id.frameLayout_homepage, PostsFragment.newInstance(homePageClient));
             ft.commit();
         }
-        else if(item.getItemId()==R.id.action_home) {
+        else if(item.getItemId()==R.id.action_upcoming_events) {
             FragmentTransaction ft=childFm.beginTransaction();
-            ft.replace(R.id.frameLayout_homepage, HomeFragment.newInstance(homePageClient));
+            ft.add(R.id.frameLayout_homepage, new UpcomingEventsFragment());
+            ft.addToBackStack("homepage");
+            ft.commit();
+        }
+        else if(item.getItemId() == R.id.action_heirarchy) {
+            FragmentTransaction ft=childFm.beginTransaction();
+            ft.add(R.id.frameLayout_homepage, new HierarchyFragment());
+            ft.addToBackStack("homepage");
+            ft.commit();
+        }
+        else if(item.getItemId() == R.id.action_contact) {
+            FragmentTransaction ft=childFm.beginTransaction();
+            ft.add(R.id.frameLayout_homepage, new ContactUsFragment());
+            ft.addToBackStack("homepage");
             ft.commit();
         }
         return true;
