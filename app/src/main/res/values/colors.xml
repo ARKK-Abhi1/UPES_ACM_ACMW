@@ -9,7 +9,7 @@
     <color name="onPrimary">#000000</color>
     <color name="onSeconadry">#000000</color>
 
-    <color name="gray">#fffff0</color>
+    <color name="gray">#eceff1</color>
     <color name="bottom_nav_icon_tint">#000000</color>
     <color name="bottom_nav_icon_text">#000000</color>
     <color name="legacy_primary">#4fe5cd</color>

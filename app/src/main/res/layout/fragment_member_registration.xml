@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,135 +10,186 @@
 
     <ScrollView
         android:id="@+id/scroll_bar_container"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/editText_sap"
+            android:orientation="vertical"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:layout_marginTop="15dp">
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:hint="SAP ID"
-                android:inputType="number" />
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:id="@+id/editText_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="Full Name"
+                    android:textSize="16sp"
+                    android:shadowColor="@color/onSeconadry"/>
+            </android.support.design.widget.TextInputLayout>
 
-        <EditText
-            android:id="@+id/editText_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            android:hint="Full Name"
-            android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/editText_contact"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:hint="Phone Number"
-                android:inputType="number|phone"
-                android:textSize="16sp" />
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:id="@+id/editText_branch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Branch"
+                    android:textSize="16sp"
+                    android:shadowColor="@color/onSeconadry"/>
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/editText_whatsappno"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:hint="Whatsapp Number"
-                android:inputType="number|phone"
-                android:textSize="16sp" />
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:id="@+id/editText_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Year Of Study"
+                    android:textSize="16sp"
+                    android:shadowColor="@color/onSeconadry"/>
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/editText_year"
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:hint="Year Of Study"
-                android:textSize="16sp" />
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:id="@+id/editText_sap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="SAP ID"
+                    android:inputType="number"
+                    android:shadowColor="@color/onSeconadry"/>
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/editText_email"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:hint="Email address"
-                android:inputType="textEmailAddress|text"
-                android:textSize="16sp" />
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:id="@+id/editText_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Email address"
+                    android:inputType="textEmailAddress|text"
+                    android:textSize="16sp"
+                    android:shadowColor="@color/onSeconadry"/>
+            </android.support.design.widget.TextInputLayout>
 
 
-            <EditText
-            android:id="@+id/editText_branch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            android:hint="Branch"
-            android:textSize="16sp" />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:id="@+id/editText_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Phone Number"
+                    android:inputType="number|phone"
+                    android:textSize="16sp"
+                    android:shadowColor="@color/onSeconadry"/>
+            </android.support.design.widget.TextInputLayout>
 
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:id="@+id/editText_whatsappno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Whatsapp Number"
+                    android:inputType="number|phone"
+                    android:textSize="16sp"
+                    android:shadowColor="@color/onSeconadry"/>
+            </android.support.design.widget.TextInputLayout>
 
-
-
-
-
-
-
-
-
-        <RadioGroup
-            android:id="@+id/radio_group_membership"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radio_button_premium"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Premium" />
+                android:text="Membership Type:"
+                android:paddingTop="20dp"
+                android:textSize="16sp"
+                android:shadowColor="@color/onSeconadry"/>
+            <RadioGroup
+                android:id="@+id/radio_group_membership"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/radio_button_normal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Normal" />
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/radio_button_premium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Premium (4 years)"
+                    android:shadowColor="@color/onSeconadry"/>
+
+                <RadioButton
+                    android:id="@+id/radio_button_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Normal (1 year)"
+                    android:shadowColor="@color/onSeconadry"/>
+            </RadioGroup>
+
             <Button
                 android:id="@+id/button_register"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="4dp"
+                android:layout_marginLeft="120dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:layout_weight="1"
                 android:text="Register" />
+
+
+
         </LinearLayout>
+
     </ScrollView>
 
     <ProgressBar
