@@ -15,8 +15,10 @@
     <color name="legacy_primary">#4fe5cd</color>
     <color name="primaryColor">#4fe5cd</color
     <color name="image_view_bg">#a55434</color>
-    <color name="caption_bg">#96000000</color>
+    <color name="caption_bg">#7d000000</color>
     <color name="caption_fg">#dbd6d6</color>
+    <color name="acm_standard">#4e8df5</color>
+    <color name="acm_color2">#F50057</color>
 
 
 </resources>
