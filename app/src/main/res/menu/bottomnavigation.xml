@@ -4,20 +4,20 @@
     <item
         android:id="@+id/action_posts"
         android:icon="@drawable/home_bottomnav"
-        android:title="@string/title_posts" />
+        android:title="" />
 
     <item
         android:id="@+id/action_upcoming_events"
         android:icon="@drawable/ic_event_note_black_24dp"
-        android:title="@string/title_upcmngevents" />
+        android:title="" />
 
     <item
         android:id="@+id/action_heirarchy"
-        android:icon="@drawable/members_bottomnav"
-        android:title="@string/title_hierarchy" />
+        android:icon="@drawable/ic_supervisor_account_black_24dp"
+        android:title="" />
 
     <item android:id="@+id/action_contact"
-        android:title="@string/title_contact"
-        android:icon="@drawable/contact_bottomnav"/>
+        android:title=""
+        android:icon="@drawable/ic_call_black_24dp"/>
 
 </menu>

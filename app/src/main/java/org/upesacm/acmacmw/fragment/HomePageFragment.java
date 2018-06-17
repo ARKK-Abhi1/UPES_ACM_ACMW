@@ -2,6 +2,7 @@ package org.upesacm.acmacmw.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
@@ -9,11 +10,17 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.view.menu.MenuView;
+import android.support.v7.widget.AppCompatImageView;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import org.upesacm.acmacmw.R;
 import org.upesacm.acmacmw.activity.HomeActivity;
@@ -59,7 +66,6 @@ public class HomePageFragment extends Fragment implements BottomNavigationView.O
         bottomNavigationView=(BottomNavigationView)view.findViewById(R.id.bottomNavigationView);
         disableShiftMode(bottomNavigationView);
 
-
         /* ********************** Setting up listener for bottom navigation view ********/
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         /* ****************************************************************************** */
@@ -87,13 +93,23 @@ public class HomePageFragment extends Fragment implements BottomNavigationView.O
             shiftingMode.setAccessible(true);
             shiftingMode.setBoolean(menuView, false);
             shiftingMode.setAccessible(false);
+
             for (int i = 0; i < menuView.getChildCount(); i++) {
                 BottomNavigationItemView item = (BottomNavigationItemView) menuView.getChildAt(i);
                 //noinspection RestrictedApi
                 item.setShiftingMode(false);
+                //icons at centre
+                item.setPadding(0, 20, 0, 0);
                 // set once again checked value, so view will be updated
                 //noinspection RestrictedApi
                 item.setChecked(item.getItemData().isChecked());
+
+                final View iconView = menuView.getChildAt(i).findViewById(android.support.design.R.id.icon);
+                final ViewGroup.LayoutParams layoutParams = iconView.getLayoutParams();
+                final DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+                layoutParams.height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 32, displayMetrics);
+                layoutParams.width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 32, displayMetrics);
+                iconView.setLayoutParams(layoutParams);
             }
         } catch (NoSuchFieldException e) {
             Log.e("BNVHelper", "Unable to get shift mode field", e);
